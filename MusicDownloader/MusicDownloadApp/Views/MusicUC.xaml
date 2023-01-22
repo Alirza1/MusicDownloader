@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="MusicDownloadApp.Views.MusicUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MusicDownloadApp.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="650"
+             BorderBrush="red"
+             BorderThickness="0,0,0,1">
+    <StackPanel Background="White"
+                Margin="10,10">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="18" Text="Name : "></TextBlock>
+            <TextBlock FontSize="18" Text="{Binding Music.Name}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="18" Text="Path : "></TextBlock>
+            <TextBlock FontSize="18" Text="{Binding Music.Path}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="18" Text="Url : "></TextBlock>
+            <TextBlock FontSize="18" Text="{Binding Music.Url}"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="18" Text="Time : "></TextBlock>
+
+            <TextBlock FontSize="18" Text="{Binding Minute,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock FontSize="18" Text="m. "/>
+
+            <TextBlock FontSize="18" Text="{Binding Second,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock FontSize="18" Text="s. "/>
+
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+           
+                <Button
+                Command="{Binding PauseCommand}"
+                Margin="20,5"
+            Width="25"
+            Height="25"
+            >
+                    <Button.Background>
+                        <ImageBrush ImageSource="../Images/pause.png"/>
+                    </Button.Background>
+                </Button>
+
+
+            <Button
+                Command="{Binding PlayCommand}"
+                Margin="20,5"
+            Width="25"
+            Height="25"
+            >
+                <Button.Background>
+                    <ImageBrush ImageSource="../Images/play.png"/>
+                </Button.Background>
+            </Button>
+
+
+            <Button
+                Command="{Binding CancelCommand}"
+                Margin="20,5"
+            Width="25"
+            Height="25"
+            >
+                <Button.Background>
+                    <ImageBrush ImageSource="../Images/cancel.png"/>
+                </Button.Background>
+            </Button>
+
+        </StackPanel>
+        <TextBlock Margin="0,10" FontSize="18" Foreground="{Binding StatusColor}" Text="{Binding Status}"></TextBlock>
+        
+    </StackPanel>
+</UserControl>
